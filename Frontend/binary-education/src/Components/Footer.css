@@ -1,0 +1,38 @@
+.footdiv1{
+    background-image: url('../Assets/whitebg2.jpg');
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.aboutdiv{
+    height: 15vh;
+    background-color: rgb(53, 51, 51);
+}
+.links{
+    background-color: rgb(56, 54, 54);
+    height: 15vh;
+    justify-content: center;
+    align-items: center;
+}
+.footdiv2{
+    
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footdiv3{
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footdiv4{
+    height: 15vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}

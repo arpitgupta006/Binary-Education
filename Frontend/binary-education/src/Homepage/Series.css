@@ -1,0 +1,11 @@
+.booksimg{
+    width: 24vw;
+    height: 27vw;
+}
+
+.carousal{
+    overflow-x: hidden;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
