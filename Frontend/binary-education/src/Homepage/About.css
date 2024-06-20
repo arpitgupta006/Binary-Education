@@ -1,0 +1,8 @@
+.categorydivAbout{
+    width: 100%;
+    height: 40vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-image: url(../Assets/bluebg.jpg);
+}

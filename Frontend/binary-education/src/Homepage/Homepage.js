@@ -8,6 +8,7 @@ import './Homepage.css'
 import Button from 'react-bootstrap/esm/Button';
 import Series from './Series';
 import Footer from '../Components/Footer';
+import Navbar from '../Components/MainNavbar';
 
 
 function Homepage() {
@@ -15,6 +16,7 @@ function Homepage() {
     return (
         <div className="homediv">
 
+            <Navbar/>
 
             <Carousel>
                 <Carousel.Item>
