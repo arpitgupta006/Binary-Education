@@ -20,3 +20,12 @@
     background: url('../Assets/lightbg.jpg');
 }
 
+.preloader{
+    background-image: url('../Assets/loading2.gif')   ;
+    background-color: #ffffff;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+

@@ -12,10 +12,19 @@ import Navbar from '../Components/MainNavbar';
 
 
 function Homepage() {
+
+   const[loader , setLoader] = useState(true)
+
+   const hideloader = ()=>{
+        setLoader(false)
+   }
+
+   window.addEventListener("load" , hideloader)
  
     return (
         <div className="homediv">
 
+            <div className={loader ? 'preloader' : ''}></div>
             <Navbar/>
 
             <Carousel>
@@ -27,7 +36,7 @@ function Homepage() {
                     <Carousel.Caption>
                         <h3 style={{ fontSize: '30px' }}>Start Learning Today</h3>
                         <h1 style={{ fontSize: '60px' }}>Explore Interests and Career With Courses</h1>
-                        <Button>Find Courses</Button>
+                        <Button variant='outline-light'>Find Courses</Button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -41,7 +50,7 @@ function Homepage() {
                     <Carousel.Caption>
                         <h3 style={{ fontSize: '30px' }}>Start Learning Today</h3>
                         <h1 style={{ fontSize: '60px' }}>Online Courses From Leading Experts</h1>
-                        <Button>Find Courses</Button>
+                        <Button variant='outline-light'>Find Courses</Button>
                     </Carousel.Caption>
                 </Carousel.Item>
 

@@ -1,16 +1,18 @@
 #basic-nav-dropdown{
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
-.navbar.active{
+.navbar-active{
 
-    background-color: rgba(245, 245, 245, 0.9);
-}
-
-.navbar{
-    background-color: rgba(180, 206, 244, 0.9) ;
+    background-color: rgb(36, 36, 141);
     position: fixed;
     margin: auto;
     display: flex;
     justify-content: center;
+    
+}
+
+.navBar{
+    background-color: rgba(180, 206, 244, 0.1) ;
+    
 }
