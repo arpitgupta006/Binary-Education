@@ -1,0 +1,16 @@
+.mainregdiv{
+    background-image: linear-gradient(to bottom right, rgb(15, 0, 99), rgb(84, 81, 235));
+    width: 100%;
+    height: 100vh;
+}
+
+.contAiner{
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 14%;
+}
+
+.cardbox{
+    box-shadow: 0 0 10px 5px rgb(37, 29, 154);
+}

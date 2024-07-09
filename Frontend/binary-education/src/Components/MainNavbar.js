@@ -7,7 +7,7 @@ import './MainNavbar.css'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
-import binarylogo from '../Assets/binarylogo.jpg'
+import binary from '../Assets/binary.png'
 
 function MainNavbar() {
 
@@ -33,7 +33,7 @@ function MainNavbar() {
                     
                 <Container className='justify-content-center d-flex'>
                     <Navbar.Brand href="#home" className='text-light' style={{ fontSize: '30px' }}>
-                        <img src={binarylogo} width={350} height={60}>
+                        <img src={binary}  width={350} height={60}>
                         </img>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -86,9 +86,9 @@ function MainNavbar() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item >Login/Register as Student</Dropdown.Item>
-        <Dropdown.Item >Login/Register as School</Dropdown.Item>
-        <Dropdown.Item >Login/Register as Teacher</Dropdown.Item>
+        <Dropdown.Item onClick={()=>navigate('/studentregistration')} >Login/Register as Student</Dropdown.Item>
+        <Dropdown.Item onClick={()=>navigate('/schoolregistration')} >Login/Register as School</Dropdown.Item>
+        <Dropdown.Item onClick={()=>navigate('/teacherregistration')} >Login/Register as Teacher</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
                 </Container>
