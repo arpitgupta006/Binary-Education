@@ -11,8 +11,11 @@ import {
     CountrySelect,
     StateSelect,
 } from "react-country-state-city";
-
 import "react-country-state-city/dist/react-country-state-city.css";
+import { useDispatch } from 'react-redux'
+import {Link , useNavigate} from 'react-router-dom'
+import axios from 'axios'
+
 
 function StudentRegistration() {
 
@@ -32,15 +35,53 @@ function StudentRegistration() {
     const [city, setCity] = useState(null);
     const [zipcode, setZipcode] = useState(null);
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     function login(){
-        alert(emailLog + passwordLog + zipcode + state + city )
+      
+      console.log("Log button")
+      const requestData = { email:emailLog, password:passwordLog }
+      axios.post('http://localhost:4000/studentlogin' , requestData)
+          .then((result) => {
+            console.log("getting result")
+              if (result.status == 200) {
+                  alert("Logged in")
+                  console.log("got result")
+                  console.log(result.data.result.user)
+                  localStorage.setItem("user" , JSON.stringify(result.data.result.user));
+                  dispatch({type: 'LOGIN_SUCCESS' , payload : result.data.result.user})
+                  navigate('/')
+              } else {
+                console.log( result ,"no result")
+              }
+              
+          })
+          .catch((error) => {
+              console.log(error)
+              alert(error)
+              console.log("error")
+          })
        
     }
 
-    function register(){
-        console.log("country->" , country ,"state->" ,state , "city->" , city , school)
-    }
-
+    function signup() {
+     
+      const requestData = { fullName: name, email:emailReg, password:passwordReg , phone:phoneNum , cLass: studentclass ,
+        school , country:country , state:state, city: city , pincode : zipcode}
+      axios.post('http://localhost:4000/studentsignup' , requestData)
+          .then((result) => {
+              if (result.status == 201) {
+                  alert("Signed in")
+              }
+              
+          })
+          .catch((error) => {
+              console.log(error)
+              alert(error)
+             
+          })
+        }
     return (
         <div className='mainregdiv '>
             <h1 className='text-white justify-content-center d-flex'>STUDENT</h1>
@@ -98,7 +139,7 @@ function StudentRegistration() {
                                             </Form.Group>
 
                                             <Form.Label>Select Class</Form.Label>
-                                            <Form.Select onChange={(e)=>setSchool(e.target.value)} aria-label="Default select example">
+                                            <Form.Select onChange={(e)=>setStudentClass(e.target.value)} aria-label="Default select example">
                                                 <option value="1st Class">1st Class</option>
                                                 <option value="2nd Class">2nd Class</option>
                                                 <option value="3rd Class">3rd Class</option>
@@ -186,7 +227,7 @@ function StudentRegistration() {
                                 </Col>
                             </Row>
                             <div className='d-grid' >
-                                <Button onClick={() => register()} variant="primary" >Register</Button>
+                                <Button onClick={() => signup()} variant="primary" >Register</Button>
                             </div>
                         </Card>
 

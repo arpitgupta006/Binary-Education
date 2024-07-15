@@ -12,8 +12,10 @@ import {
     CountrySelect,
     StateSelect,
 } from "react-country-state-city";
-
 import "react-country-state-city/dist/react-country-state-city.css";
+import { useDispatch } from 'react-redux'
+import {Link , useNavigate} from 'react-router-dom'
+
 
 function TeacherRegistration() {
 
@@ -32,6 +34,9 @@ function TeacherRegistration() {
     const [city, setCity] = useState(null);
     const [zipcode, setZipcode] = useState(null);
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     function login(){
       
       console.log("Log button")
@@ -42,7 +47,10 @@ function TeacherRegistration() {
               if (result.status == 200) {
                   alert("Logged in")
                   console.log("got result")
-                  console.log(result)
+                  console.log(result.data.result.user)
+                  localStorage.setItem("user" , JSON.stringify(result.data.result.user));
+                  dispatch({type: 'LOGIN_SUCCESS' , payload : result.data.result.user})
+                  navigate('/')
               } else {
                 console.log( result ,"no result")
               }

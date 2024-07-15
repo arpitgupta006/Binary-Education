@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:false
     },
-    class:{
+    cLass:{
         type: String,
         required:false
     },

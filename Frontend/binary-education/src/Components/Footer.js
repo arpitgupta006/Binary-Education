@@ -5,16 +5,8 @@ import Nav from 'react-bootstrap/Nav';
 function Footer() {
   return (
     <div>
-        <div className='aboutdiv'>
-        <h1 className='text-light'>About us</h1>
-        <h6 className='text-light'>Binary education is one of the most reputed publications house</h6>
-    </div>
-    
-         <div className='footdiv1'>
-        <h1>Subscribe to Newsletter</h1>
-        </div>
-       
- 
+        
+     
         <div className='links justify-content-center'>
           <div  className='footdiv2'>
           <Nav

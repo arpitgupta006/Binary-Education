@@ -19,11 +19,15 @@ mongoose.connection.on('error', (error) => {
 })
 
 require('./models/user_teacher');
+require('./models/user_student');
+require('./models/books_model');
 
 app.use(cors());
 app.use(express.json());
 
 app.use(require('./routes/teacher_route'));
+app.use(require('./routes/student_route'));
+app.use(require('./routes/book_route'));
 
 app.listen(PORT, () => {
     console.log("Server started");

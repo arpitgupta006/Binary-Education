@@ -1,30 +1,38 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import carimg1 from '../Assets/collegestudy1.jpg'
 import carimg2 from '../Assets/collegestudy4.jpg'
-
-
 import './Homepage.css'
 import Button from 'react-bootstrap/esm/Button';
 import Series from './Series';
 import Footer from '../Components/Footer';
 import Navbar from '../Components/MainNavbar';
-
+import axios from 'axios'
 
 function Homepage() {
 
-   const[loader , setLoader] = useState(true)
+    const [allBooks, setAllBooks] = useState([])
 
-   const hideloader = ()=>{
-        setLoader(false)
-   }
+    const getAllBooks= async () =>{
+        const response = await axios.get(`http://localhost:4000/allbooks`);
+        
+        if(response.status ===200){
+            setAllBooks(response.data.books);
+            console.log("allBooks" ,response.data.books)
 
-   window.addEventListener("load" , hideloader)
+        } else {
+            
+        }
+    }
+
+    useEffect(()=>{
+        getAllBooks()
+    } , []);
  
     return (
         <div className="homediv">
 
-            <div className={loader ? 'preloader' : ''}></div>
+            
             <Navbar/>
 
             <Carousel>
@@ -34,9 +42,10 @@ function Homepage() {
                         src={carimg1} >
                     </img>
                     <Carousel.Caption>
-                        <h3 style={{ fontSize: '30px' }}>Start Learning Today</h3>
-                        <h1 style={{ fontSize: '60px' }}>Explore Interests and Career With Courses</h1>
-                        <Button variant='outline-light'>Find Courses</Button>
+                        <h1 style={{ fontSize: '60px' }}>"A word after a word after a word is power"</h1>
+                        <h3 style={{ fontSize: '30px' }}>Margaret Atwood</h3>
+                        
+                        
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -48,9 +57,9 @@ function Homepage() {
                     </img>
                     
                     <Carousel.Caption>
-                        <h3 style={{ fontSize: '30px' }}>Start Learning Today</h3>
-                        <h1 style={{ fontSize: '60px' }}>Online Courses From Leading Experts</h1>
-                        <Button variant='outline-light'>Find Courses</Button>
+                        <h1 style={{ fontSize: '60px' }}>"Today a reader, tomorrow a leader"</h1>
+                        <h3 style={{ fontSize: '30px' }}>Margaret Fuller</h3>
+                        
                     </Carousel.Caption>
                 </Carousel.Item>
 
